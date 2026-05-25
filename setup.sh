@@ -4,7 +4,7 @@
 
 set -euo pipefail
 
-DEVBOX_REPO="bensonalec/devbox"
+DEVBOX_REPO="bensonalec/comfig"
 DEVBOX_HTTPS="https://github.com/${DEVBOX_REPO}.git"
 DEVBOX_DIR="/workspace/devbox"
 DOTFILES_LINK="/workspace/dotfiles"     # symlinked → $DEVBOX_DIR/dotfiles
