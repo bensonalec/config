@@ -1,0 +1,67 @@
+# Starship prompt config. Symbols use Nerd Font glyphs — make sure your
+# local terminal has a Nerd Font installed (e.g. JetBrainsMono Nerd Font).
+#
+# If you're on a terminal that can't load a Nerd Font, regenerate this file:
+#   starship preset plain-text-symbols -o ~/.config/starship.toml
+
+add_newline = false
+command_timeout = 1000
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$elixir\
+$java\
+$golang\
+$python\
+$nodejs\
+$cmd_duration\
+$line_break\
+$character\
+"""
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+style = "bold cyan"
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold yellow)"
+
+[cmd_duration]
+min_time = 1000
+format = "took [$duration]($style) "
+style = "bold yellow"
+
+[git_branch]
+symbol = " "
+style = "bold purple"
+format = "on [$symbol$branch]($style) "
+
+[git_status]
+style = "bold red"
+format = '([\[$all_status$ahead_behind\]]($style) )'
+
+[elixir]
+symbol = " "
+style = "bold magenta"
+format = "via [$symbol($version )]($style)"
+
+[java]
+symbol = " "
+style = "bold red"
+
+[golang]
+symbol = " "
+style = "bold cyan"
+
+[python]
+symbol = " "
+style = "bold yellow"
+
+[nodejs]
+symbol = " "
+style = "bold green"

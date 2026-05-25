@@ -1,0 +1,19 @@
+# Global mise toolchain config. Per-project .mise.toml files in each
+# repo override these values.
+
+[tools]
+go      = "1.24"
+python  = "3.13"
+java    = "temurin-21"
+erlang  = "27"
+elixir  = "1.18.4-otp-27"   # pinned to match OTP 27 — see CHANGELOG for upgrades
+node    = "22"
+
+# Global dev tooling
+"npm:pnpm"   = "latest"
+"pipx:ruff"  = "latest"
+"go:golang.org/x/tools/gopls"                            = "latest"
+"go:github.com/golangci/golangci-lint/cmd/golangci-lint" = "latest"
+
+[settings]
+experimental = true

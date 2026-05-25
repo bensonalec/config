@@ -1,0 +1,17 @@
+# Secrets and machine-specific overrides
+zshrc-local
+.gitconfig.local
+
+# OS detritus
+.DS_Store
+Thumbs.db
+
+# Editor artifacts
+*.swp
+*.swo
+*~
+.vscode/
+
+# Backups
+*.bak
+*.orig

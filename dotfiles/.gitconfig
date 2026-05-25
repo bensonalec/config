@@ -1,0 +1,59 @@
+# Layered into your global git config by devbox-setup.sh via:
+#   git config --global include.path /workspace/dotfiles/.gitconfig
+
+[user]
+    name = Alec Benson
+    email = alecbenson21@gmail.com
+
+[init]
+    defaultBranch = main
+
+[pull]
+    rebase = true
+
+[push]
+    autoSetupRemote = true
+    default = current
+
+[fetch]
+    prune = true
+
+[core]
+    pager = delta
+    editor = nvim
+    autocrlf = input
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    side-by-side = true
+    line-numbers = true
+    syntax-theme = Dracula
+
+[merge]
+    conflictstyle = diff3
+    tool = nvimdiff
+
+[diff]
+    colorMoved = default
+
+[rerere]
+    enabled = true
+
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    lg = log --oneline --graph --decorate --all
+    amend = commit --amend --no-edit
+    wip = commit -am "wip"
+    undo = reset --soft HEAD^
+
+# Personal/secret config goes in zshrc-local-adjacent ~/.gitconfig.local if needed
+[include]
+    path = ~/.gitconfig.local

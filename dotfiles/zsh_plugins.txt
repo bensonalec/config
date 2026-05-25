@@ -1,0 +1,8 @@
+# Antidote plugin list. Loaded by /workspace/dotfiles/zshrc-extras.
+# Order matters: fast-syntax-highlighting last so it can wrap other widgets.
+
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
+Aloxaf/fzf-tab
+zdharma-continuum/fast-syntax-highlighting
