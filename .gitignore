@@ -1,6 +1,6 @@
 # Secrets and machine-specific overrides
-zshrc-local
-.gitconfig.local
+dotfiles/zshrc-local
+dotfiles/.gitconfig.local
 
 # OS detritus
 .DS_Store
@@ -10,7 +10,6 @@ Thumbs.db
 *.swp
 *.swo
 *~
-.vscode/
 
 # Backups
 *.bak
