@@ -26,6 +26,8 @@ if ! gh auth status >/dev/null 2>&1; then
 fi
 
 # --- Clone or update devbox repo ---
+GIT_SSH_URL="git@github.com:${DEVBOX_REPO}.git"
+
 if [ -d "$DEVBOX_DIR/.git" ]; then
     info "Updating existing devbox checkout..."
     git -C "$DEVBOX_DIR" pull --rebase --autostash || warn "Pull failed"
@@ -33,16 +35,14 @@ elif [ -d "$DEVBOX_DIR" ] && [ -n "$(ls -A "$DEVBOX_DIR" 2>/dev/null)" ]; then
     BACKUP="${DEVBOX_DIR}.bak.$(date +%s)"
     warn "$DEVBOX_DIR is non-empty and not a git repo; backing up to $BACKUP"
     mv "$DEVBOX_DIR" "$BACKUP"
-    gh repo clone "$DEVBOX_REPO" "$DEVBOX_DIR" 2>/dev/null \
-        || git clone "$DEVBOX_HTTPS" "$DEVBOX_DIR"
+    info "Cloning $DEVBOX_REPO via SSH..."
+    git clone "$GIT_SSH_URL" "$DEVBOX_DIR"
 else
     [ -d "$DEVBOX_DIR" ] && rmdir "$DEVBOX_DIR" 2>/dev/null || true
-    info "Cloning devbox repo..."
-    gh repo clone "$DEVBOX_REPO" "$DEVBOX_DIR" 2>/dev/null \
-        || git clone "$DEVBOX_HTTPS" "$DEVBOX_DIR"
+    info "Cloning $DEVBOX_REPO via SSH..."
+    git clone "$GIT_SSH_URL" "$DEVBOX_DIR"
 fi
 ok "Devbox repo ready at $DEVBOX_DIR"
-
 # --- Symlink /workspace/dotfiles → $DEVBOX_DIR/dotfiles ---
 # Keeps the canonical /workspace/dotfiles/ paths working in zshrc-extras,
 # antidote, install-vscode-extensions.sh, and the Dockerfile-baked ~/.zshrc.
